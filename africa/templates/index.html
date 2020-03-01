@@ -6,11 +6,6 @@
     <img src="{{image.image.url}}" class="img-responsive" style="max-width: 400px; max-height: 400px;"
         data-toggle="modal" data-target="#modaler">
     {{image.image_name}}
-    {{image.image_description}}
-    {{image.created_at}}
-    {{image.location}}
-    {{image.category}}
-
 
     <!-- Modal -->
     <div class="modal fade" id="modaler" tabindex="-1" role="dialog" aria-labelledby="modalerTitle" aria-hidden="true">
@@ -29,7 +24,8 @@
                     {{image.location}}
                     {{image.category}}
                     <br>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-secondary btn_toggle" onclick="clipCopy(`{{image.image.url}}`)">Copy to Clipboard</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -38,4 +34,22 @@
     <p>There are no Pinned Images</p>
     {% endfor %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function clipCopy(value) {
+      function handler(event){
+          event.clipboardData.setData('text/plain', ''+value);
+          event.preventDefault();
+          document.removeEventListener('copy', handler, true);
+      }
+      document.addEventListener('copy', handler, true);
+      document.execCommand('copy');
+      
+    }
+
+    
+  
+    </script>
 {% endblock %}
