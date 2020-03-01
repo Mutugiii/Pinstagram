@@ -38,5 +38,29 @@ class Image(models.Model, CrudMethods):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
+    @classmethod
+    def get_images(cls):
+        '''Class method to get all the images stored in database'''
+        images = Image.objects.all()
+        return images
+
+    @classmethod
+    def get_image_by_id(cls, image_id):
+        '''Class method to get a specific image by it's id'''
+        image = cls.objects.filter(id = image_id).first()
+        return image
+
+    @classmethod
+    def search_images(cls, search_category):
+        '''Class method to search for images'''
+        images = cls.objects.filter(category__category = search_category)
+        return images
+
+    @classmethod
+    def filter_by_location(cls, search_location):
+        '''Class method to filter images by location'''
+        images = cls.objects.filter(location__location = search_location)
+        return images
+        
     def __str__(self):
         return self.image_name

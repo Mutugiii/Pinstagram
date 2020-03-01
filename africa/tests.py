@@ -109,3 +109,27 @@ class TestImage(TestCase):
         self.test_image.save_class()
         self.test_image.update_class(image_name = 'Which Mogadishu')
         self.assertEqual(self.test_image.image_name, 'Which Mogadishu')
+
+    def test_get_images(self):
+        '''Function to test getting all images'''
+        self.test_image.save_class()
+        all_images = Image.get_images()
+        self.assertTrue(len(all_images) > 0)
+
+    def test_get_image_by_id(self):
+        '''Test to get an image by its ID'''
+        self.test_image.save_class()
+        image = Image.get_image_by_id(self.test_image.id)
+        self.assertEqual(image.id, self.test_image.id)
+
+    def test_search_images(self):
+        '''Function to test searching for an image'''
+        self.test_image.save_class()
+        images = Image.search_images('landscape')
+        self.assertTrue(len(images) == 1)
+
+    def test_filter_by_location(self):
+        '''Function to test the filter by location method'''
+        self.test_image.save_class()
+        images = Image.filter_by_location('Nairobi')
+        self.assertTrue(len(images) == 1)
