@@ -2,15 +2,15 @@ from django.db import models
 
 class CrudMethods:
     '''Method class for Common methods'''
-    def save(self):
+    def save_class(self):
         '''Function to save class to database'''
         self.save()
 
-    def delete(self):
+    def delete_class(self):
         '''Function to delete class from database'''
         self.delete()
 
-    def update(self, **kwargs):
+    def update_class(self, **kwargs):
         '''Function to update the class in database'''
         for key,value in kwargs.items():
             setattr(self,key,value)
