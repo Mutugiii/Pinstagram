@@ -3,12 +3,37 @@
 {% block content %}
 <div class="container">
     {% for image in images %}
-    <img src="{{image.image.url}}" class="img-responsive" style="max-width: 400px; max-height: 400px;">
+    <img src="{{image.image.url}}" class="img-responsive" style="max-width: 400px; max-height: 400px;"
+        data-toggle="modal" data-target="#modaler">
     {{image.image_name}}
     {{image.image_description}}
     {{image.created_at}}
     {{image.location}}
     {{image.category}}
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modaler" tabindex="-1" role="dialog" aria-labelledby="modalerTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img src="{{image.image.url}}" class="img-responsive" style="max-width: 400px; max-height: 400px;"
+                        data-toggle="modal" data-target="#modaler">
+                    <br>
+                    {{image.image_name}}
+                    {{image.image_description}}
+                    {{image.created_at}}
+                    {{image.location}}
+                    {{image.category}}
+                    <br>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     {% empty %}
     <p>There are no Pinned Images</p>
     {% endfor %}
