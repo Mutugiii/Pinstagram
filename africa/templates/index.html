@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
     {% for image in images %}
+    <img src="{{image.image.url}}" class="img-responsive" style="max-width: 400px; max-height: 400px;">
     {{image.image_name}}
     {{image.image_description}}
     {{image.created_at}}
