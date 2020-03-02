@@ -4,10 +4,7 @@
 [![codebeat badge](https://codebeat.co/badges/6a3882fb-b3d0-4567-8cb5-ec35be65d079)](https://codebeat.co/projects/github-com-mutugiii-pinstagram-master)
 
 ## Description
-
-
-## DB diagram
-![PhotoGallery ](https://user-images.githubusercontent.com/31355212/75525228-867cca80-5a20-11ea-8ac9-2ddb03799afb.png)
+A python django app that allows you to view images posted by admin
 
 
 # Installation
