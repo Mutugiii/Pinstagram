@@ -33,3 +33,7 @@ def search(request):
             'message': message,
         }
         return render(request, 'search.html', {'message': message})
+
+def locations(request):
+    '''View Function to sort based on location'''
+    
