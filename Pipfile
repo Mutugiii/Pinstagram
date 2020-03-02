@@ -12,6 +12,7 @@ pillow = "*"
 gunicorn = "*"
 whitenoise = "*"
 dj-database-url = "*"
+cloudinary = "*"
 
 [requires]
 python_version = "3.6"

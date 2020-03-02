@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'africa',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +122,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Cloudinary Configurations
+
+cloudinary.config( 
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('API_KEY'),
+  api_secret = os.environ.get('API_SECRET'),
+)
 
 
 # Static files (CSS, JavaScript, Images)

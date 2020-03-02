@@ -1,4 +1,8 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
+import cloudinary
 
 class CrudMethods:
     '''Method class for Common methods'''
@@ -34,7 +38,7 @@ class Image(models.Model, CrudMethods):
     '''Image Class containing the Image details'''
     image_name = models.CharField(max_length=30)
     image_description = models.TextField()
-    image = models.ImageField(upload_to='images/') 
+    image = CloudinaryField('image') 
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -65,3 +69,8 @@ class Image(models.Model, CrudMethods):
         
     def __str__(self):
         return self.image_name
+
+@receiver(pre_delete, sender=Image)
+def photo_delete(sender, instance, **kwargs):
+    '''Cloudinary's Predelete signal to tell cloudinary to delete image when model is deleted'''
+    cloudinary.uploader.destroy(instance.image.public_id)
