@@ -1,1 +1,1 @@
-web: gunicorn gallery.wsgi
+web: gunicorn gallery.wsgi --timeout 45 --keep-alive 15
