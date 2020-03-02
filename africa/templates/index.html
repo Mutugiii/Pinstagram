@@ -44,7 +44,7 @@
 <script>
     function clipCopy(value) {
         function handler(event) {
-            event.clipboardData.setData('text/plain', '' + value);
+            event.clipboardData.setData('text/plain', 'https://exploregallery.herokuapp.com/' + value);
             event.preventDefault();
             document.removeEventListener('copy', handler, true);
         }
