@@ -10,9 +10,12 @@
 
 {% block content %}
 <div class="container">
+    <h3 class="text-center font-family: 'Raleway';">Explore Gallery</h3>
+</div>
+<div class="container">
     <div class="row">
         {% for image in images %}
-        <div onmouseover="showSomeDetails('details{{image.id}}')" onmouseout="hideSomeDetails('details{{image.id}}')">
+        <div>
             <img src="{{image.image.url}}" class="img-responsive img-page-show"
                 style="max-width: 500px; max-height: 400px; padding: 13px;border-radius: 30px;" data-toggle="modal"
                 data-target="#modaler{{image.id}}">
@@ -59,13 +62,6 @@
         }
         document.addEventListener('copy', handler, true);
         document.execCommand('copy');
-    }
-    function showSomeDetails(id) {
-        document.getElementById(id).style.visibility = 'visible'
-    }
-
-    function hideSomeDetails(id) {
-        document.getElementById(id).style.visibility = 'hidden'
     }
 </script>
 {% endblock %}
