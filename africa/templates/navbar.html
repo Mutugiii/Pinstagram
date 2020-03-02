@@ -1,4 +1,4 @@
-<nav class="navbar fixed-bottom navbar-expand-sm navbar-light" style="background-color: #60635A; opacity: 0.9;">
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-light" style="background-color: #60635A; opacity: 0.9; height: 60px;">
     <a class="navbar-brand" href="/">Pinstagram</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,11 +10,12 @@
         </li>
         
         <li class="nav-item dropup">
-          <a class="nav-link dropdown-toggle" href="https://getbootstrap.com/" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Locations</a>
+          <a class="nav-link dropdown-toggle" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Locations</a>
           <div class="dropdown-menu" aria-labelledby="dropdown10">
-            <a class="dropdown-item" href="{% url 'locations' 'east'%}">East africa</a>
-            <a class="dropdown-item" href="{% url 'locations' 'west'%}">West Africa</a>
-            <a class="dropdown-item" href="{% url 'locations' 'south'%}">Southern Africa</a>
+            <a class="dropdown-item" href="{% url 'locations' 'East Africa'%}">East africa</a>
+            <a class="dropdown-item" href="{% url 'locations' 'West Africa'%}">West Africa</a>
+            <a class="dropdown-item" href="{% url 'locations' 'North Africa'%}">North Africa</a>
+            <a class="dropdown-item" href="{% url 'locations' 'Southern Africa'%}">Southern Africa</a>
           </div>
         </li> 
       </ul>
