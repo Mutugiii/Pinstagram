@@ -1,67 +1,6 @@
-{% extends 'base.html' %}
-
-{% block styles %}
-<style>
-    .img-page-show:hover {
-        opacity: 0.5;
-    }
-</style>
-{% endblock %}
-
 {% block content %}
 <div class="container">
     <h3 class="text-center font-family: 'Raleway';">Explore Gallery</h3>
 </div>
-<div class="container">
-    <div class="row">
-        {% for image in images %}
-        <div>
-            <img src="{{image.image.url}}" class="img-responsive img-page-show"
-                style="max-width: 500px; max-height: 400px; padding: 13px;border-radius: 30px;" data-toggle="modal"
-                data-target="#modaler{{image.id}}">
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="modaler{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="modalerTitle"
-            aria-hidden="true" style="opacity: 0.9; background-color: #60635A;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body" style="opacity: 0.9; background-color: white;">
-                        <img src="{{image.image.url}}" class="img-responsive"
-                            style="max-width: 450px; max-height: 450px;" data-toggle="modal" data-target="#modaler">
-                        <br>
-                        <div class="text-center" style="font-family: 'Raleway';">
-                            Name: {{image.image_name}} <br>
-                            Description: {{image.image_description}} <br>
-                            Published: {{image.created_at}} <br>
-                            Location: {{image.location}} <br>
-                            Category: {{image.category}} <br>
-                            <button type="button" class="btn btn-outline-secondary btn_toggle"
-                                onclick="clipCopy(`{{image.image.url}}`)" data-dismiss="modal">Copy to
-                                Clipboard</button>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% empty %}
-        <p>There are no Pinned Images</p>
-        {% endfor %}
-    </div>
-</div>
-</div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-    function clipCopy(value) {
-        function handler(event) {
-            event.clipboardData.setData('text/plain', 'https://exploregallery.herokuapp.com' + value);
-            event.preventDefault();
-            document.removeEventListener('copy', handler, true);
-        }
-        document.addEventListener('copy', handler, true);
-        document.execCommand('copy');
-    }
-</script>
+{% include 'shared/image.html' %}
 {% endblock %}

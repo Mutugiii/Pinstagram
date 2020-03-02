@@ -34,6 +34,11 @@ def search(request):
         }
         return render(request, 'search.html', {'message': message})
 
-def locations(request):
+def locations(request, region):
     '''View Function to sort based on location'''
-    
+    template = loader.get_template('location.html')
+    region_images = Image.filter_by_location(region)
+    context = {     
+        'images': region_images,
+    }
+    return HttpResponse(template.render(context,request))
