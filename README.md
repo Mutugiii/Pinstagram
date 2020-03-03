@@ -4,7 +4,7 @@
 [![codebeat badge](https://codebeat.co/badges/6a3882fb-b3d0-4567-8cb5-ec35be65d079)](https://codebeat.co/projects/github-com-mutugiii-pinstagram-master)
 
 ## Description
-A python django app that allows you to view images posted by admin
+A python django app that allows you to view images posted by admin. User can search for images based on category and view images based on different location
 
 
 # Installation
@@ -54,6 +54,7 @@ To contribute, Open an issue first if it is a major contribution, for minor issu
     Python 3.6
     Django
     PostgreSQL
+    Cloudinary
 
 ## Author
 Mutugi
