@@ -6,6 +6,27 @@
     .img-page-show:hover {
         opacity: 0.5;
     }
+
+    @media only screen and (min-width: 1024px) {
+        .img-zoom {
+            -webkit-transition: 2s;
+            transition: 2s;
+        }
+
+        .img-zoom:hover {
+            -ms-transform: scale(2.0);
+            -webkit-transition: 2s;
+            transition: 2s;
+            /* IE 9 */
+            -webkit-transform: scale(2.0);
+            -webkit-transition: 2s;
+            transition: 2s;
+            /* Safari 3-8 */
+            transform: scale(2.0);
+            -webkit-transition: 2s;
+            transition: 2s;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -25,7 +46,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body" style="opacity: 0.9; background-color: white;">
-                        <img src="{{image.image.url}}" class="img-responsive"
+                        <img src="{{image.image.url}}" class="img-responsive img-zoom"
                             style="max-width: 450px; max-height: 450px;" data-toggle="modal" data-target="#modaler">
                         <br>
                         <div class="text-center" style="font-family: 'Raleway';">
